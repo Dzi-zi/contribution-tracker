@@ -1,0 +1,67 @@
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center;
+  padding: 0 var(--space-5);
+  height: 56px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  font-size: var(--text-base); font-weight: 600;
+  color: var(--text); flex: 1; letter-spacing: -0.01em;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.navbar-brand:hover { color: var(--accent); }
+
+.navbar-mark {
+  width: 22px; height: 22px;
+  border: 1.5px solid var(--accent);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.navbar-mark-inner { width: 8px; height: 8px; background: var(--accent); border-radius: 2px; }
+
+.hamburger {
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  background: none;
+  border: 1px solid var(--border-2); border-radius: var(--r-sm);
+  padding: 8px 9px; cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.hamburger:hover { background: var(--bg-3); border-color: var(--border-3); }
+
+.ham-line {
+  display: block; width: 16px; height: 1.5px;
+  background: var(--text-2); border-radius: 2px;
+  transition: transform var(--dur-normal) var(--ease-out), opacity var(--dur-normal) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.hamburger:hover .ham-line           { background: var(--text); }
+.ham-line.open:nth-child(1)          { transform: translateY(5.5px) rotate(45deg); }
+.ham-line.open:nth-child(2)          { opacity: 0; transform: scaleX(0); }
+.ham-line.open:nth-child(3)          { transform: translateY(-5.5px) rotate(-45deg); }
+
+.nav-dropdown {
+  position: absolute; top: 56px; right: 0;
+  min-width: 180px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2); border-top: none;
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  overflow: hidden;
+  animation: slide-up var(--dur-normal) var(--ease-out);
+}
+
+.nav-link {
+  display: flex; align-items: center;
+  padding: 11px var(--space-4);
+  text-decoration: none; color: var(--text-2);
+  font-size: var(--text-sm); font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.nav-link:last-child { border-bottom: none; }
+.nav-link:hover      { background: var(--bg-3); color: var(--text); }
+.nav-link.active     { color: var(--accent); background: var(--accent-dim); }
